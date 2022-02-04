@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.lucee</groupId>
   <artifactId>axis-ant</artifactId>
-  <version>1.4.0.L0002</version>
-  <name>Axis ANT</name>
+  <version>1.4.0.0003L</version>
+  <name>Axis-Ant</name>
   <packaging>bundle</packaging>
 
-  <description>OSGi Version of Axis ANT</description>
+  <description>OSGi Version of Axis-Ant</description>
   <url>http://maven.lucee.org/axis-ant/</url>
 
   <!-- same license as the original jar -->
@@ -111,17 +111,19 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>5.1.2</version>
         <configuration>
           <unpackBundle>true</unpackBundle>
           <instructions>
             <Bundle-Name>org.lucee.axis.ant</Bundle-Name>
             <Bundle-SymbolicName>org.lucee.axis.ant</Bundle-SymbolicName>
             <Bundle-Description>OSGI version of jar ${project.name}</Bundle-Description>
-            <Export-Package>*</Export-Package>
-            <Require-Bundle>org.lucee.axis;bundle-version=1.4.0.L0002</Require-Bundle>
-            <Import-Package>!org.apache.tools.ant</Import-Package>
-            <DynamicImport-Package>org.apache.tools.ant.types,org.apache.tools.ant.taskdefs,org.apache.axis.encoding,org.apache.axis.wsdl.toJava,org.apache.tools.ant,org.apache.axis.wsdl.fromJava</DynamicImport-Package>
+            <Export-Package>*,META-INF.services.*</Export-Package>
+            <Require-Bundle>org.lucee.axis;bundle-version=1.4.0.0003L</Require-Bundle>
+            <!-- <Require-Bundle-Fragment></Require-Bundle-Fragment> -->
+            <Import-Package>!org.apache.tools.ant.types,!org.apache.tools.ant.taskdefs,!org.apache.axis.encoding,!org.apache.axis.wsdl.toJava,!org.apache.tools.ant,!org.apache.axis.wsdl.fromJava,!org.apache.log4j,*</Import-Package>
+            <DynamicImport-Package>org.apache.tools.ant.types,org.apache.tools.ant.taskdefs,org.apache.axis.encoding,org.apache.axis.wsdl.toJava,org.apache.tools.ant,org.apache.axis.wsdl.fromJava,org.apache.log4j,</DynamicImport-Package>
+            <!-- <Fragment-Host></Fragment-Host> -->
           </instructions>
         </configuration>
         <extensions>true</extensions>
@@ -137,7 +139,7 @@
     <url>https://github.com/lucee/osgi-bundle-axis-ant</url>
     <connection>scm:git:git://github.com/lucee/osgi-bundle-axis-ant.git</connection>
     <developerConnection>scm:git:git@github.com:lucee/osgi-bundle-axis-ant.git</developerConnection>
-    <tag>Axis ANT OSGi library</tag>
+    <tag>Axis-Ant OSGi library</tag>
   </scm>
 
   <distributionManagement>
